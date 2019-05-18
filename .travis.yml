@@ -1,0 +1,15 @@
+language:
+  - c
+  - cpp
+
+addons:
+  apt:
+    packages:
+      - gstreamer1.0-plugins-base
+      - libgstreamer1.0-dev
+
+script:
+  - echo "test"
+branches:
+  only:
+    - master
