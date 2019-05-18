@@ -1,4 +1,5 @@
 dist: xenial
+sudo: required
 
 language:
   - c
@@ -15,7 +16,8 @@ addons:
 before_script:
   - git clone --depth 1 https://github.com/aws/aws-sdk-cpp.git
   - cmake -DBUILD_ONLY="s3;sts" aws-sdk-cpp
-  - make -j 4 install
+  - make -j 4
+  - sudo make install
 
 script:
   - echo "test"
