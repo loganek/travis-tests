@@ -10,6 +10,12 @@ addons:
       - gstreamer1.0-plugins-base
       - libgstreamer1.0-dev
       - meson
+      - cmake
+
+before_script:
+  - git clone --depth 1 https://github.com/aws/aws-sdk-cpp.git
+  - cmake -DBUILD_ONLY=s3;sts aws-sdk-cpp
+  - make -j 4 install
 
 script:
   - echo "test"
